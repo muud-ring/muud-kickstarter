@@ -9,10 +9,9 @@
 
   // Pipedream endpoint receives the lead and writes to Google Sheet + Slack + welcome email
   // Google Apps Script Web App endpoint — MUUD Ring lead capture
-  // Deploy via Apps Script: Deploy → New deployment → Web app → Anyone → /exec URL
+  // Vercel serverless endpoint — handles Mailgun welcome + Slack notify inline
   // See kickstarter_push/track4/gas_lead_capture/DEPLOY_INSTRUCTIONS.md
-  // TODO(armin): replace YOUR_DEPLOYMENT_ID with the /exec URL after deploying GAS.
-  const ENDPOINT = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+  const ENDPOINT = "https://muudksleadsapi.vercel.app/api/lead";
 
   const forms = document.querySelectorAll("form.signup");
 
