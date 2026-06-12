@@ -1,0 +1,699 @@
+/* ============================================================
+   MUUD Ring — pre-launch landing
+   Built on MUUD Brand Kit & Design System v3.1 (May 2026)
+   All values flow from tokens.css. Never inline hex/dp here.
+   ============================================================ */
+
+/* ---------- Layout primitives ---------- */
+.container {
+  width: min(100% - calc(var(--space-4) * 2), 1180px);
+  margin-inline: auto;
+}
+.container--narrow {
+  width: min(100% - calc(var(--space-4) * 2), 720px);
+  margin-inline: auto;
+}
+.section { padding: var(--space-12) 0; }
+@media (min-width: 768px) { .section { padding: calc(var(--space-12) * 1.5) 0; } }
+
+.section__kicker {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--text-label);
+  font-weight: 600;
+  color: var(--color-brand-interactive); /* Purple 700 · 7.0:1 AAA on Pearl */
+  margin-bottom: var(--space-3);
+}
+.section__head { max-width: 640px; margin-bottom: var(--space-8); }
+.section__head--center { margin-inline: auto; text-align: center; }
+.section__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-l);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-brand-deep); /* Purple 800 · 10.9:1 AAA on Pearl */
+  letter-spacing: -0.005em;
+}
+.section__sub {
+  font-size: var(--text-body-l);
+  color: var(--color-muted);
+  margin-top: var(--space-3);
+  max-width: 56ch;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 { font-family: var(--font-body); color: var(--color-brand-deep); }
+.display { font-family: var(--font-display); font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; }
+.data { font-family: var(--font-mono); }
+
+/* ---------- Buttons (§10) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-body-l);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  min-height: var(--touch-target-min);
+  white-space: nowrap;
+  transition: background var(--motion-quick), transform var(--motion-quick), box-shadow var(--motion-quick);
+}
+/* Primary — Purple 700 on white label · 7.2:1 AAA */
+.btn--primary {
+  background: var(--color-brand-interactive);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--color-brand-deep); }
+.btn--primary:active { transform: scale(0.97); opacity: 0.95; }
+
+/* Primary Hero — brand gradient · onboarding / paywall / celebration */
+.btn--hero {
+  background: var(--gradient-brand);
+  color: #fff;
+}
+.btn--hero:hover { filter: brightness(1.05); }
+.btn--hero:active { transform: scale(0.97); }
+
+/* Secondary — Purple 100 / Purple 700 text */
+.btn--secondary {
+  background: var(--color-purple-100);
+  color: var(--color-brand-interactive);
+}
+.btn--secondary:hover { background: #DDD6FE; }
+
+/* Outline — 1.5px Purple 700 border + text */
+.btn--outline {
+  background: transparent;
+  color: var(--color-brand-interactive);
+  border: 1.5px solid var(--color-brand-interactive);
+}
+.btn--outline:hover { background: var(--color-purple-100); }
+
+/* Ghost — no bg / Purple 600 text */
+.btn--ghost { color: var(--color-violet); }
+.btn--ghost:hover { background: var(--color-purple-100); }
+
+/* ---------- Logo (broken-ring lockup, simplified for landing) ---------- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: inherit;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.logo__mark { width: 32px; height: 32px; flex: 0 0 32px; }
+.logo__wordmark { font-size: var(--text-h3); }
+
+/* ---------- Navigation (sticky, on Pearl) ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250, 250, 252, 0.85);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+.nav__inner {
+  width: min(100% - calc(var(--space-4) * 2), 1180px);
+  margin-inline: auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-3) 0;
+  min-height: var(--nav-height);
+}
+.nav__brand { color: var(--color-brand-deep); }
+.nav__cta {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-body-m);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background: var(--gradient-brand-dark);
+  color: var(--color-text-on-dark);
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(80% 60% at 75% 15%, rgba(174, 0, 177, 0.18), transparent 60%);
+  pointer-events: none;
+}
+.hero__inner {
+  position: relative;
+  width: min(100% - calc(var(--space-4) * 2), 1180px);
+  margin-inline: auto;
+  display: grid; gap: var(--space-8); align-items: center;
+  padding: var(--space-12) 0;
+}
+@media (min-width: 860px) {
+  .hero__inner { grid-template-columns: 1.05fr 0.95fr; padding: calc(var(--space-12) * 1.8) 0; }
+}
+
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--color-text-on-dark);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 1.5rem + 3.5vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: #fff;
+  max-width: 16ch;
+}
+
+.hero__sub {
+  font-family: var(--font-body);
+  font-size: var(--text-body-l);
+  color: rgba(245, 243, 255, 0.85);
+  margin: var(--space-5) 0 var(--space-8);
+  max-width: 42ch;
+  line-height: 1.55;
+}
+
+.hero__visual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: rgba(255, 255, 255, 0.04);
+}
+.hero__visual img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+/* ---------- Hero email capture form ---------- */
+.signup {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 460px;
+}
+@media (min-width: 520px) {
+  .signup__row { display: grid; grid-template-columns: 1fr auto; gap: var(--space-2); }
+}
+
+.input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--text-body-l);
+  padding: 0 var(--space-4);
+  height: var(--touch-target-min);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text-primary);
+  transition: border-color var(--motion-quick), box-shadow var(--motion-quick);
+}
+.input::placeholder { color: var(--color-muted); }
+.input:focus {
+  outline: none;
+  border-color: var(--color-violet);
+  box-shadow: 0 0 0 3px var(--color-purple-100);
+}
+.input--error { border-color: var(--color-error); }
+
+.signup__helper {
+  font-size: var(--text-label);
+  color: rgba(245, 243, 255, 0.72);
+  line-height: 1.5;
+}
+
+.signup__msg {
+  font-family: var(--font-body);
+  font-size: var(--text-body-m);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+.signup__msg[data-state="success"] {
+  background: rgba(22, 163, 74, 0.18);
+  border-color: rgba(22, 163, 74, 0.45);
+}
+.signup__msg[data-state="error"] {
+  background: rgba(220, 38, 38, 0.20);
+  border-color: rgba(220, 38, 38, 0.45);
+}
+.signup__msg[hidden] { display: none; }
+
+/* ---------- Pillars (§01 Three Pillars treatment) ---------- */
+.pillars {
+  background: var(--color-bg-pearl);
+}
+.pillar-grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .pillar-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.pillar {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-violet);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+.pillar[data-pillar="tech"]    { border-left-color: var(--color-action); }
+.pillar[data-pillar="clinic"]  { border-left-color: var(--color-signal); }
+.pillar[data-pillar="academy"] { border-left-color: var(--color-violet); }
+.pillar__code {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--color-purple-100);
+  color: var(--color-brand-deep);
+  font-family: var(--font-body); font-weight: 700;
+  font-size: var(--text-body-l);
+  margin-bottom: var(--space-3);
+}
+.pillar__title {
+  font-size: var(--text-h2);
+  font-weight: 600;
+  color: var(--color-brand-deep);
+  margin-bottom: var(--space-2);
+}
+.pillar__body {
+  font-size: var(--text-body-m);
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+/* ---------- Promise band (gradient, hero-class surface only) ---------- */
+.promise {
+  background: var(--gradient-brand);
+  color: #fff;
+  text-align: center;
+}
+.promise__quote {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+  line-height: 1.25;
+  max-width: 32ch;
+  margin: 0 auto var(--space-4);
+}
+.promise__attr {
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- Specs (data table cards) ---------- */
+.specs {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 600px) { .specs { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .specs { grid-template-columns: repeat(4, 1fr); } }
+.spec {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+.spec__label {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+.spec__value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: var(--text-h2);
+  color: var(--color-brand-deep);
+}
+.spec__unit {
+  font-family: var(--font-body);
+  font-size: var(--text-body-m);
+  color: var(--color-muted);
+  margin-top: var(--space-1);
+}
+
+/* ---------- FAQ (semantic <details>) ---------- */
+.faq-section { background: #F4F1FA; } /* explicit light surface; cannot flip dark */
+.faq-list { display: grid; gap: var(--space-3); }
+.faq {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+}
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 600;
+  font-size: var(--text-h3);
+  color: var(--color-brand-deep);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: var(--text-h2);
+  color: var(--color-violet);
+  transition: transform var(--motion-quick);
+}
+.faq[open] summary::after { content: "−"; }
+.faq__body {
+  margin-top: var(--space-3);
+  color: var(--color-muted);
+  font-size: var(--text-body-m);
+  line-height: 1.6;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--color-brand-deep);
+  color: rgba(245, 243, 255, 0.85);
+  font-size: var(--text-body-m);
+  padding: var(--space-12) 0;
+}
+.footer__inner {
+  width: min(100% - calc(var(--space-4) * 2), 1180px);
+  margin-inline: auto;
+  display: grid; gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) { .footer__inner { grid-template-columns: 2fr 1fr 1fr; } }
+.footer__legal { color: rgba(245, 243, 255, 0.55); font-size: var(--text-caption); margin-top: var(--space-3); }
+.footer a:hover { color: #fff; text-decoration: underline; }
+
+/* ---------- Final CTA card ---------- */
+.final-cta {
+  background: var(--color-purple-100);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+}
+@media (min-width: 720px) { .final-cta { padding: calc(var(--space-12) * 1.5) var(--space-12); } }
+.final-cta .signup { margin: var(--space-6) auto 0; }
+.final-cta .input { background: #fff; }
+.final-cta .signup__helper { color: var(--color-muted); }
+
+/* ============ LEADERSHIP / BOARD ============ */
+.promise__figure { display: flex; justify-content: center; margin: 0 0 var(--space-6); }
+.promise__portrait {
+  width: 96px; height: 96px;
+  border-radius: var(--radius-pill);
+  object-fit: cover;
+  border: 3px solid #FAFAFC;
+  box-shadow: 0 4px 14px rgba(79, 23, 110, 0.18);
+}
+
+.leadership {
+  background: #FAFAFC;
+}
+.leadership__group {
+  font-family: 'Questrial', system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #4F176E;
+  margin: var(--space-12) 0 var(--space-6);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.leadership__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-8);
+}
+.member {
+  background: #FFFFFF;
+  border: 1px solid #EDE7F4;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.member__photo {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-pill);
+  object-fit: cover;
+  margin-bottom: var(--space-4);
+  border: 2px solid #F4F1FA;
+}
+.member__name {
+  font-family: 'Questrial', system-ui, sans-serif;
+  font-size: 1.0625rem;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-1);
+  line-height: 1.3;
+}
+.member__role {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6B21A8;
+  margin: 0 0 var(--space-3);
+  line-height: 1.3;
+}
+.member__bio {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.9375rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Founder portrait on dark gradient: stronger ring & shadow for contrast */
+.promise .promise__portrait {
+  width: 120px; height: 120px;
+  border: 4px solid #FAFAFC;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255,255,255,0.25);
+  background: #FAFAFC;
+}
+
+/* Initials placeholder when verified photo not yet sourced */
+.member__initials {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4F176E 0%, #7C3AED 50%, #AE00B1 100%);
+  color: #FAFAFC;
+  font-family: 'Questrial', system-ui, sans-serif;
+  font-size: 1.875rem;
+  letter-spacing: 0.04em;
+  border: 2px solid #F4F1FA;
+  user-select: none;
+}
+
+/* ============================================================
+   MUUD Ring — ADA/UX + Apple Panel Audit Patch v1.0 (June 11, 2026)
+   Light-only scheme (Option A from ADA audit § N-6)
+   ============================================================ */
+
+/* ---- Force light color scheme — prevents iOS dark-mode flip ---- */
+:root { color-scheme: light only; }
+
+/* ---- C-4 / S-1: Focus ring overrides for dark-background buttons ---- */
+.btn--primary:focus-visible,
+.btn--hero:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px var(--color-purple-100);
+}
+.btn--secondary:focus-visible,
+.btn--outline:focus-visible,
+.btn--ghost:focus-visible {
+  outline: 2px solid var(--color-violet);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px var(--color-purple-100);
+}
+.footer a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+/* ---- C-3 / S-6: FAQ summary touch target (44px) ---- */
+.faq summary {
+  min-height: var(--touch-target-min);
+  padding-block: var(--space-3);
+}
+
+/* ---- S-2: Leadership group — token-driven, not hardcoded ---- */
+.leadership {
+  background: var(--color-bg-pearl);
+}
+.leadership__group {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 400;
+  color: var(--color-brand-deep);
+  margin: var(--space-12) 0 var(--space-6);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.member {
+  background: #fff;
+  border: 1px solid var(--color-border);
+}
+
+/* ---- S-3: section__sub contrast on tinted backgrounds ---- */
+.section--grouped .section__sub,
+.faq-section .section__sub {
+  color: var(--color-text-primary);
+}
+.final-cta .section__sub {
+  color: #475569; /* Slate 600 — 5.74:1 on #EDE9FE */
+}
+
+/* ---- S-4: footer__legal contrast fix ---- */
+.footer__legal {
+  color: rgba(245, 243, 255, 0.70);
+  font-size: var(--text-label); /* 12px — was 11px */
+}
+
+/* ---- S-6: Footer link touch targets ---- */
+.footer ul a {
+  display: inline-block;
+  padding-block: var(--space-3); /* ≈44px total target */
+}
+
+/* ---- S-5: Promise blockquote semantic structure ---- */
+.promise blockquote {
+  margin: 0;
+  text-align: center;
+}
+.promise blockquote > p {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+  line-height: 1.25;
+  max-width: 32ch;
+  margin: 0 auto var(--space-4);
+  color: #fff;
+}
+.promise blockquote footer { margin: 0; }
+.promise__attr { font-style: normal; }
+
+/* ---- M-3: Bump body-m text for mobile readability ---- */
+.pillar__body,
+.faq__body,
+.member__role {
+  font-size: clamp(0.9375rem, 0.0893vw + 0.9196rem, 1rem); /* 15–16px */
+}
+.nav__cta {
+  font-size: var(--text-body-l); /* 16px — was 14px */
+}
+.spec__unit,
+.member__bio {
+  font-size: 0.9375rem; /* 15px */
+}
+
+/* ---- M-4: FAQ section — class-based bg, not inline ---- */
+.section--grouped {
+  background: var(--color-surface-grouped);
+}
+.faq-section {
+  background: var(--color-surface-grouped);
+}
+
+/* ---- M-5: scroll-margin-top so sticky nav doesn't cover targets ---- */
+#main,
+#signup,
+#hero-title,
+#faq-title,
+#leadership-title,
+#pillars-title,
+#specs-title,
+#fidget-title {
+  scroll-margin-top: calc(var(--nav-height) + var(--space-2));
+}
+
+/* ---- M-7: section title line-height floor ---- */
+.section__title { line-height: 1.2; }
+
+/* ---- N-2: Eyebrow + helper bump to 13px ---- */
+.hero__eyebrow,
+.signup__helper {
+  font-size: 0.8125rem; /* 13px */
+}
+
+/* ---- N-3: Promise attr opacity bump ---- */
+.promise__attr {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ---- N-4: Hero title leading bump ---- */
+.hero__title { line-height: 1.15; }
+
+/* ---- Second skip-link (pre-launch form) ---- */
+.skip-link--second:focus {
+  left: calc(var(--space-4) + 220px);
+}
+
+/* ---- Hero countdown line (Apple Panel addition) ---- */
+.hero__countdown {
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-body-m);
+  color: rgba(245, 243, 255, 0.85);
+  letter-spacing: 0.02em;
+}
+.hero__countdown-num {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+.hero__countdown-label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  margin-left: var(--space-1);
+}
+
+/* ---- Fidget Dial dedicated section ---- */
+.fidget {
+  background: var(--color-bg-pearl);
+}
+.fidget__body {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 0.5rem + 1.5vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  max-width: 36ch;
+  margin: 0 auto;
+}

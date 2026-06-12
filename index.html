@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: light;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <meta name="supported-color-schemes" content="light" />
+  <title>MUUD Ring — The first ring built for your mind.</title>
+  <meta name="description" content="The first ring built for your mind. Mental fitness, measured. Pre-launch list — Kickstarter goes live June 23." />
+  <meta name="theme-color" content="#4F176E" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MUUD Ring — The first ring built for your mind." />
+  <meta property="og:description" content="The first ring built for your mind. Mental fitness, measured. Kickstarter goes live June 23." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://muudhealth.com/kickstarter" />
+  <meta property="og:image" content="./assets/ring-hero.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Analytics intentionally deferred until production IDs are issued.
+       Re-enable Meta Pixel + GA4 here once we have the real IDs. -->
+
+  <!-- Fonts: Questrial (display) + DM Sans (body) + JetBrains Mono (data) — per Brand Kit §08 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./base.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Favicon: simplified broken-ring mark in brand gradient -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%234F176E'/%3E%3Cstop offset='.5' stop-color='%237C3AED'/%3E%3Cstop offset='1' stop-color='%23AE00B1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M16 3a13 13 0 0 1 11.5 19' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M27.5 22A13 13 0 1 1 16 3' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round' opacity='0'/%3E%3Cpath d='M4.5 22A13 13 0 0 0 16 29a13 13 0 0 0 11.5-7' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M4.5 10A13 13 0 0 1 16 3' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <a href="#signup" class="skip-link skip-link--second">Skip to pre-launch form</a>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" aria-label="Primary">
+    <div class="nav__inner">
+      <a href="#" class="logo nav__brand" aria-label="MUUD Health">
+        <!-- Broken-ring mark — gradient — non-decomposable per §03 -->
+        <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <linearGradient id="nav-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#4F176E"/>
+              <stop offset=".5" stop-color="#7C3AED"/>
+              <stop offset="1" stop-color="#AE00B1"/>
+            </linearGradient>
+          </defs>
+          <!-- Top arc -->
+          <path d="M7 14a15 15 0 0 1 26 0" fill="none" stroke="url(#nav-grad)" stroke-width="3" stroke-linecap="round"/>
+          <!-- Bottom arc -->
+          <path d="M7 26a15 15 0 0 0 26 0" fill="none" stroke="url(#nav-grad)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="logo__wordmark">MUUD</span>
+      </a>
+      <a href="#signup" class="btn btn--primary nav__cta">Reserve your spot</a>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <span class="hero__eyebrow">Smart ring · Pre-launch · June 23</span>
+          <h1 class="hero__title" id="hero-title">The first ring built for your mind.</h1>
+          <p class="hero__sub">
+            Insight is only half the work. The other half is the loop that closes it.
+          </p>
+
+          <form id="signup-hero" class="signup" novalidate>
+            <div class="signup__row">
+              <label for="email-hero" class="visually-hidden">Email address</label>
+              <input
+                type="email"
+                id="email-hero"
+                name="email"
+                class="input"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+                aria-required="true"
+                aria-describedby="helper-hero"
+              />
+              <button type="submit" class="btn btn--hero" data-source="hero">Reserve my spot</button>
+            </div>
+            <p class="signup__helper" id="helper-hero">
+              One email when the Kickstarter goes live. No marketing list, no sharing. Unsubscribe in one click.
+            </p>
+            <p class="hero__countdown" aria-live="polite"><span id="countdown-days" class="hero__countdown-num">—</span> <span class="hero__countdown-label">days to launch · June 23</span></p>
+            <div class="signup__msg" id="msg-hero" hidden role="status" aria-live="polite" aria-atomic="true"></div>
+          </form>
+        </div>
+
+        <div class="hero__visual">
+          <img src="./assets/ring-hero.webp" alt="The MUUD Ring shown at three-quarter view, brushed titanium body with a subtle inner sensor array." width="640" height="800" loading="eager" fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THREE PILLARS ============ -->
+    <section class="section pillars" aria-labelledby="pillars-title">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="section__kicker">How it works</p>
+          <h2 class="section__title display" id="pillars-title">The closed loop, on one rail.</h2>
+          <p class="section__sub">Biometrics, reflection, AI, and clinical care don't live in separate apps stitched together. They live on the same rail — by design.</p>
+        </div>
+
+        <div class="pillar-grid">
+          <article class="pillar" data-pillar="tech">
+            <span class="pillar__code" aria-hidden="true">T</span>
+            <h3 class="pillar__title">Tech</h3>
+            <p class="pillar__body">The MUUD Ring, the MUUD app, and the Symbolic Mirror AI engine. Where signal becomes insight, and insight becomes action.</p>
+          </article>
+          <article class="pillar" data-pillar="clinic">
+            <span class="pillar__code" aria-hidden="true">C</span>
+            <h3 class="pillar__title">Clinic</h3>
+            <p class="pillar__body">Telepsychiatry and evidence-based care. The clinical backbone behind every MUUD claim.</p>
+          </article>
+          <article class="pillar" data-pillar="academy">
+            <span class="pillar__code" aria-hidden="true">A</span>
+            <h3 class="pillar__title">Academy</h3>
+            <p class="pillar__body">NBHWC coach training, school programs, and corporate burnout prevention. The brand's outward face to the workforce of tomorrow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPECS ============ -->
+    <section class="section" aria-labelledby="specs-title">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="section__kicker">Engineered for this.</p>
+          <h2 class="section__title display" id="specs-title">Built sensor-up. Wear-up.</h2>
+          <p class="section__sub">Designed with clinical advisors. Validated against research-grade biometrics. Built to be worn — not charged once and forgotten.</p>
+        </div>
+
+        <div class="specs">
+          <div class="spec">
+            <p class="spec__label">Weight</p>
+            <p class="spec__value">3–5 <span class="spec__unit">g</span></p>
+            <p class="spec__unit">by ring size</p>
+          </div>
+          <div class="spec">
+            <p class="spec__label">Battery</p>
+            <p class="spec__value">7 <span class="spec__unit">days</span></p>
+            <p class="spec__unit">typical use</p>
+          </div>
+          <div class="spec">
+            <p class="spec__label">Water rating</p>
+            <p class="spec__value">10 <span class="spec__unit">ATM</span></p>
+            <p class="spec__unit">IP68 verified</p>
+          </div>
+          <div class="spec">
+            <p class="spec__label">Sensors</p>
+            <p class="spec__value">PPG <span class="spec__unit">×3</span></p>
+            <p class="spec__unit">red · IR · green</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FIDGET DIAL ============ -->
+    <section class="section fidget" aria-labelledby="fidget-title">
+      <div class="container container--narrow">
+        <div class="section__head section__head--center">
+          <p class="section__kicker">A small thing that does a big thing.</p>
+          <h2 class="section__title display" id="fidget-title">The Fidget Dial.</h2>
+          <p class="section__sub fidget__body">A tactile rotating crown for in-the-moment grounding. No app needed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BRAND PROMISE BAND ============ -->
+    <section class="section promise" aria-label="Brand promise">
+      <div class="container container--narrow">
+        <figure class="promise__figure">
+          <img class="promise__portrait" src="assets/founder.webp"
+               alt="Dr. Armin Hoes, MD, Founder of MUUD Health"
+               width="160" height="160" loading="lazy" decoding="async">
+          <figcaption class="visually-hidden">Dr. Armin Hoes, MD — Founder, MUUD Health</figcaption>
+        </figure>
+        <blockquote class="promise__quote" cite="https://muudhealth.com/about">
+          <p>&#8220;Mental fitness is not a luxury. It is the prerequisite for everything else you are trying to do.&#8221;</p>
+          <footer>
+            <cite class="promise__attr">— Dr. Armin Hoes, MD · Founder, MUUD Health</cite>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ============ LEADERSHIP / BOARD ============ -->
+    <section class="section leadership" aria-labelledby="leadership-title">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="section__kicker">Built by clinicians.</p>
+          <h2 class="section__title display" id="leadership-title">The people behind the ring.</h2>
+          <p class="section__sub">Real clinicians, scientists, and operators. Verified profiles, real photographs — no AI portraits on this page.</p>
+        </div>
+
+        <h3 class="leadership__group">Board of Directors</h3>
+        <ul class="leadership__grid" role="list">
+          <li class="member">
+            <img class="member__photo" src="assets/hoes.webp" alt="Portrait of Dr. Armin Hoes, MD" width="160" height="160" loading="lazy" decoding="async">
+            <p class="member__name">Armin Hoes, MD</p>
+            <p class="member__role">Founder &amp; CEO</p>
+            <p class="member__bio">Board-certified psychiatrist. Howard University M.D.; UCLA psychiatry residency, Chief Resident for Education. U.S. Air Force combat veteran. Specializations: sports psychiatry, veteran mental health, burnout prevention.</p>
+          </li>
+          <li class="member">
+            <img class="member__photo" src="assets/mansour.webp" alt="Dr. Joshua Mansour, MD/MBA" width="96" height="96" loading="lazy" />
+            <p class="member__name">Joshua Mansour, MD/MBA</p>
+            <p class="member__role">Chief Medical Officer</p>
+            <p class="member__bio">Triple board-certified in Internal Medicine, Hematology, and Medical Oncology. Stanford fellowship; Johns Hopkins MBA. Assistant Professor at City of Hope; physician at Kaiser Permanente. 2019 "40 Under 40 in Cancer."</p>
+          </li>
+        </ul>
+
+        <h3 class="leadership__group">Advisory Board — Clinical &amp; Academic</h3>
+        <ul class="leadership__grid" role="list">
+          <li class="member">
+            <img class="member__photo" src="assets/troggio.webp" alt="Dr. Torey Troggio, MD" width="96" height="96" loading="lazy" />
+            <p class="member__name">Torey Troggio, MD</p>
+            <p class="member__role">Co-founder, SportsPsychMDs</p>
+            <p class="member__bio">Dual board-certified in General and Child &amp; Adolescent Psychiatry. UCLA residency; Harbor-UCLA fellowship. Practices at LA County DMH and California TMS Clinics.</p>
+          </li>
+          <li class="member">
+            <img class="member__photo" src="assets/hastings.webp" alt="Dr. Carrie Hastings, PsyD" width="96" height="96" loading="lazy" />
+            <p class="member__name">Carrie Hastings, PsyD, CMPC</p>
+            <p class="member__role">President, SportsPsychMDs Board</p>
+            <p class="member__bio">Team Psychologist, Los Angeles Rams (NFL) and Angel City FC. Psy.D. Pepperdine. Certified Mental Performance Consultant. USOC Sport Psychology Registry.</p>
+          </li>
+          <li class="member">
+            <img class="member__photo" src="assets/mauldin.webp" alt="Dr. Kristin Mauldin, PhD" width="96" height="96" loading="lazy" />
+            <p class="member__name">Kristin Mauldin, PhD</p>
+            <p class="member__role">Curriculum Director, SportsPsychMDs</p>
+            <p class="member__bio">Associate Professor and founding Director of the Sport &amp; Performance Psychology Program at California Baptist University. Ph.D. Miami University; postdoc UC San Diego cognitive neuroscience.</p>
+          </li>
+          <li class="member">
+            <img class="member__photo" src="assets/teubler.webp" alt="Justyna Teubler, NBC-HWC" width="96" height="96" loading="lazy" />
+            <p class="member__name">Justyna Teubler, MPH, NBC-HWC</p>
+            <p class="member__role">Course Director, MUUD Academy</p>
+            <p class="member__bio">National Board Certified Health &amp; Wellness Coach. Leads the NBHWC-approved coach certification program. MPH Medical University of Lodz. Chairman, National Health Prevention Council (Poland).</p>
+          </li>
+          <li class="member">
+            <img class="member__photo" src="assets/wakeford.webp" alt="Portrait of Rachel Wakeford, LCSW" width="160" height="160" loading="lazy" decoding="async">
+            <p class="member__name">Rachel Wakeford, LCSW</p>
+            <p class="member__role">Director of Therapy</p>
+            <p class="member__bio">M.S.W. East Carolina University. EMDR-trained. Specializes in trauma, sports performance therapy, OCD, and adolescent mental health. Licensed in California and North Carolina.</p>
+          </li>
+        </ul>
+
+        <h3 class="leadership__group">Advisory Board — Governance &amp; Business</h3>
+        <ul class="leadership__grid" role="list">
+          <li class="member">
+            <img class="member__photo" src="assets/zaffrini.webp" alt="Portrait of Tony Zaffirini, JD/MBA" width="160" height="160" loading="lazy" decoding="async">
+            <p class="member__name">Tony Zaffirini, JD/MBA</p>
+            <p class="member__role">Legal &amp; Regulatory Advisor</p>
+            <p class="member__bio">Attorney at FTI Consulting (Washington, D.C.). J.D. University of Texas Law; M.B.A. University of Chicago Booth. 7+ years as Senior Legislative Officer &amp; Counselor, U.S. Department of Labor.</p>
+          </li>
+          <li class="member">
+            <img class="member__photo" src="assets/hoes_laurie.webp" alt="Laurie C. Hoes, PMP" width="96" height="96" loading="lazy" />
+            <p class="member__name">Laurie C. Hoes, PMP</p>
+            <p class="member__role">Strategy &amp; Governance Advisor</p>
+            <p class="member__bio">CEO, The LcHoesGroup. PMP certified; Six Sigma Green Belt. M.A. Johns Hopkins SAIS. 30+ years across national security policy, governance, and management consulting (former VP at SAIC, Senior Associate at Booz Allen Hamilton).</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--grouped faq-section" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section__head section__head--center">
+          <p class="section__kicker">Common questions.</p>
+          <h2 class="section__title display" id="faq-title">What people ask first.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq">
+            <summary aria-expanded="false">When does the Kickstarter go live?</summary>
+            <p class="faq__body">June 23. Everyone on this list gets one direct email the moment the campaign opens. No social-feed lottery, no countdown anxiety.</p>
+          </details>
+          <details class="faq">
+            <summary aria-expanded="false">Is this a wellness gadget or a medical device?</summary>
+            <p class="faq__body">The MUUD Ring is a consumer wellness device. It is not a diagnostic instrument and is not a substitute for clinical care. For patients who need it, MUUD Clinic provides telepsychiatry on the same rail — but the ring itself is wellness, by design and by regulation.</p>
+          </details>
+          <details class="faq">
+            <summary aria-expanded="false">Do I need the app to use the ring?</summary>
+            <p class="faq__body">Yes. The ring is the sensor layer; the app is the reflection layer. The loop only closes when both are present. The app is free on iOS and Android — your backing covers the hardware.</p>
+          </details>
+          <details class="faq">
+            <summary aria-expanded="false">How does MUUD handle my data?</summary>
+            <p class="faq__body">Biometric data is encrypted in transit and at rest. The MUUD Clinic side is HIPAA-aligned. We do not sell data, and you can export or delete everything at any time. Full privacy notice published before the Kickstarter goes live.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="section" id="signup">
+      <div class="container">
+        <div class="final-cta">
+          <p class="section__kicker section__kicker--center" style="text-align:center;">June 23 · Kickstarter</p>
+          <h2 class="section__title display" style="text-align:center;">First in. First to back.</h2>
+          <p class="section__sub" style="text-align:center; margin-inline:auto; max-width: 48ch;">
+            One email when the Kickstarter opens. That's the entire commitment.
+          </p>
+
+          <form id="signup-final" class="signup" novalidate>
+            <div class="signup__row">
+              <label for="email-final" class="visually-hidden">Email address</label>
+              <input type="email" id="email-final" name="email" class="input" placeholder="you@example.com" autocomplete="email" required aria-required="true" aria-describedby="helper-final" />
+              <button type="submit" class="btn btn--primary" data-source="footer">Get early access</button>
+            </div>
+            <p class="signup__helper" id="helper-final">By submitting, you agree to receive one launch notification email. Privacy notice below.</p>
+            <div class="signup__msg" id="msg-final" hidden role="status" aria-live="polite" aria-atomic="true"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo" aria-label="MUUD Health">
+          <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M7 14a15 15 0 0 1 26 0" fill="none" stroke="#F5F3FF" stroke-width="3" stroke-linecap="round"/>
+            <path d="M7 26a15 15 0 0 0 26 0" fill="none" stroke="#F5F3FF" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <span class="logo__wordmark" style="color:#F5F3FF;">MUUD</span>
+        </a>
+        <p style="margin-top: var(--space-3); max-width: 36ch;">A closed loop for mental wellness. Tech, Clinic, Academy — on one rail.</p>
+        <p class="footer__legal">© 2026 MUUD Health, Inc. All rights reserved.</p>
+      </div>
+      <nav aria-label="Product links">
+        <p style="font-weight:600; color:#fff; margin-bottom: var(--space-2);">Product</p>
+        <ul style="display:grid; gap: var(--space-2);">
+          <li><a href="https://muudhealth.com">Home</a></li>
+          <li><a href="https://muudhealth.com/ring">MUUD Ring</a></li>
+          <li><a href="https://muudhealth.com/app">MUUD App</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company links">
+        <p style="font-weight:600; color:#fff; margin-bottom: var(--space-2);">Company</p>
+        <ul style="display:grid; gap: var(--space-2);">
+          <li><a href="https://muudhealth.com/about">About</a></li>
+          <li><a href="https://muudhealth.com/clinic">MUUD Clinic</a></li>
+          <li><a href="https://muudhealth.com/academy">MUUD Academy</a></li>
+          <li><a href="https://muudhealth.com/privacy">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
