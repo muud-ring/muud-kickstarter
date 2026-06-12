@@ -116,13 +116,13 @@
 })();
 
 // ============================================================
-// Hero countdown to Kickstarter launch — June 23, 2026
+// Hero countdown to Kickstarter launch — June 15, 2026
 // ============================================================
 (function() {
   'use strict';
   var el = document.getElementById('countdown-days');
   if (!el) return;
-  var launch = new Date('2026-06-23T08:00:00-07:00'); // 8am PT
+  var launch = new Date('2026-06-15T08:00:00-07:00'); // 8am PT
   function update() {
     var now = new Date();
     var ms = launch - now;
